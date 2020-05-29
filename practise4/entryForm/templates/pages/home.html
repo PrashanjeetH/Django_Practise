@@ -1,0 +1,29 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	</style>
+</head>
+
+<body>
+	<div>
+		<form method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label>First Name </label>
+				{{ form.first_name }}
+			</div>
+			<div class="form-group">
+				<label>Last Name </label>
+				{{ form.last_name }}
+			</div>
+			<div class="form-group">
+				<label>Roll Number</label>
+				{{ form.roll_number }}
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+
+</html>
