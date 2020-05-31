@@ -25,6 +25,7 @@ def signup(request):
             data = form_content.cleaned_data
             # make_password converts your raW password in hash, by defaut in pbkdf2_sha256
             data['password'] = make_password(data['password'])
+            # double pointer denotesof passing the dict as arguement to map proeperly the form with the models
             Signupmodel.objects.create(**data)
             form_content = Signupform()
     context['form'] = form_content
@@ -34,10 +35,8 @@ def signup(request):
 def login(request):
     context = {}
     credit = Loginform()
-    print("inside Login view")
     if request.method == "POST":
         credit = Loginform(request.POST)
-        print("inside request.method")
 
         if credit.is_valid():
             data = credit.cleaned_data

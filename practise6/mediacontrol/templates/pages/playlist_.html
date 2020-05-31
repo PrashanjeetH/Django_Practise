@@ -1,0 +1,40 @@
+{% extends 'pages/base.html' %}
+{%  block content  %}
+  <h1>playlist_.html</h1>
+  <table class="table mb-0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Singer</th>
+        <th>Genre</th>
+        <th>Download</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for song in data %}
+        <tr>
+          <td>
+            {{song.title}}
+          </td>
+          <td>
+            {{song.singer}}
+          </td>
+          <td>
+            {{song.genre}}
+          </td>
+          <td>
+            <a href="{{ song.mp3.url }}" class="btn btn-success" target = "_blank" >Download mp3</a>
+          </td>
+          <td>
+            <a href="{% url 'update' song.id %}" class = "btn btn-primary">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'delete' song.id %}" class = "btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

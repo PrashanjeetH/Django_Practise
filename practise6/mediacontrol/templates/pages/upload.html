@@ -1,0 +1,10 @@
+{% extends 'pages/base.html' %}
+{%  block content  %}
+  <p>Uplaod.html renderred successfully !</p>
+  <h1>Welcome to upload.html</h1>
+  <form method="post"   enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ up_data.as_p }}
+    <button class = "btn btn-primary" type="submit" name="button">Upload</button>
+  </form>
+{% endblock %}
