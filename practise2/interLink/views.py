@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from .models import Datalist, Contact
 # Create your views here.
 def index(request):
@@ -9,11 +9,12 @@ def index(request):
     return render(request, "pages/index.html", context)
 
 def page1(request, name_id):
-    if name_id:
+    try:
+        contact = Contact.objects.get(pk = name_id)
         context = {
-            "contact" : Contact.objects.get(pk = name_id),
+            "contact" : contact,
             "id" : name_id,
         }
         return render(request, "pages/page1.html", context)
-    else:
-        return HttpResponse(Hello)
+    except:
+        raise Http404("Contact not Found!")
