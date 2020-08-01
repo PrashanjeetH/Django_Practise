@@ -1,5 +1,5 @@
 # Django_Practise
-I posted all my Django practise while gooing through the course from [edx](https://edx.org). 
+I posted all my Django practise while going through the course from [edx](https://edx.org). 
 
 ## Course Name :
 [CS50's Web Development with Python and JavaScript | edx](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
