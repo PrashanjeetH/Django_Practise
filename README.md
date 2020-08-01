@@ -1,5 +1,5 @@
 # Django_Practise
-I posted all Django practise coursethat I Started learing from edx. 
+I posted all my Django practise while gooing through the course from [edx](hrrps://edx.org). 
 
 ## Course Name :
 [CS50's Web Development with Python and JavaScript | edx](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
@@ -7,10 +7,10 @@ I posted all Django practise coursethat I Started learing from edx.
 [Brian Yu](https://www.edx.org/bio/brian-yu)
      
 ## To Run any of the practise module run the below commands in the given sequence:
-```
->>> python3 manage.py makemigrations
->>> python3 manage.py migrate
->>> python3 manage.py runserver
+```python
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
 ```
 Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number django uses.
 
