@@ -2,9 +2,9 @@
 I posted all Django practise coursethat I Started learing from edx. 
 
 ## Course Name :
-     [CS50's Web Development with Python and JavaScript | edx](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
+[CS50's Web Development with Python and JavaScript | edx](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
 ## Instrucor
-     [Brian Yu](https://www.edx.org/bio/brian-yu)
+[Brian Yu](https://www.edx.org/bio/brian-yu)
      
 ## To Run any of the practise module run the below commands in the given sequence:
 ```
