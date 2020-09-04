@@ -7,7 +7,10 @@ __pycache__/
 
 # C extensions
 *.so
-
+SECure/*
+/db*
+__pycache__/*
+practiseRelatedCodes/*
 # Distribution / packaging
 .Python
 build/
