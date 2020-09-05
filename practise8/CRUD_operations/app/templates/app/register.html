@@ -1,0 +1,33 @@
+{% extends "app/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <h2>{{ title }}</h2>
+    <form action="." method="post">
+        {% csrf_token %}
+        <div class="row">
+
+        {{ form.username | as_crispy_field }}
+        {{ form.password1 | as_crispy_field }}
+        {{ form.password2 | as_crispy_field }}
+        <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+                    If you already have an account <a href="{% url 'login' %}" target="blank"><strong>login</strong></a> instead.
+
+                {% if form.errors %}
+                <p class="validation-summary-errors">Something went wrong, please try again !</p>
+                {% endif %}
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load static %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}
