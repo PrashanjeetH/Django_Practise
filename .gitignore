@@ -9,6 +9,7 @@ __pycache__/
 *.so
 SECure/*
 /db*
+venv/*
 __pycache__/*
 practiseRelatedCodes/*
 # Distribution / packaging

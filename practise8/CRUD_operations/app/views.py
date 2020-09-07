@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from .models import UsersDataModel
 from .forms import UserDataForm
 
 
@@ -60,9 +61,6 @@ def register(request):
             return redirect('userData')
 
         else:
-            for msg in form.error_messages:
-                print(form.error_messages[msg])
-
             return render(request,
                           template_name="app/register.html",
                           context={'form': form})
@@ -77,18 +75,26 @@ def register(request):
 
 def userData(request):
     assert isinstance(request, HttpRequest)
+
     if request.method == 'POST':
         form = UserDataForm(request.POST)
         if form.is_valid():
-            form.save()
+            model = form.cleaned_data
+            model['username'] = request.user
+            new_user = UsersDataModel(**model)
+            new_user.save()
             return redirect('home')
         else:
             for message in form.errors:
                 print(message)
-            return render(request, template_name='app/user_detail.html', context={'form': form,
-                                                                                  'title': "Sign Up",
-                                                                                  'year': datetime.now().year})
+            return render(request,
+                          template_name='app/user_detail.html',
+                          context={'form': form,
+                                   'title': "Sign Up",
+                                   'year': datetime.now().year})
     form = UserDataForm()
-    return render(request, template_name='app/user_detail.html', context={'form': form,
-                                                                          'title': "Sign Up",
-                                                                          'year': datetime.now().year})
+    return render(request,
+                  template_name='app/user_detail.html',
+                  context={'form': form,
+                           'title': "Sign Up",
+                           'year': datetime.now().year})
