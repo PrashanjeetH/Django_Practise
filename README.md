@@ -24,5 +24,6 @@ Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number 
  - practise6 : Handeling media files in Django.
  - practise7 : Introduction to Class Based View in Django.
  - practise8 : User Registration and individual content management.
+ - practise9 : Social authentication integrated in project (google authentication) [Referred](https://medium.com/@whizzoe/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5)
 
 HAPPY CODING :)
