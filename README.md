@@ -3,7 +3,7 @@ I posted all my Django practise while going through the course from [edx](https:
 
 ## Course Name :
 [CS50's Web Development with Python and JavaScript | edx](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
-## Instrucor
+## Instructor
 [Brian Yu](https://www.edx.org/bio/brian-yu) and [David. J. Malan](https://www.edx.org/bio/david-j-malan)
      
 ## To Run any of the practise module run the below commands in the given sequence:
