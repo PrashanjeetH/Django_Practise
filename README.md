@@ -14,7 +14,9 @@ python3 manage.py runserver
 ```
 Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number django uses.
 
-# Repo Walkthrough
+<details>
+<summary>Repo Walkthrough</summary>
+ 
  - practise0 : Hello world in Django i.e rendering returning HTML response from views.
  - practise1 : Rendering returning HTML file from templates and using models/DB in Django.
  - practise2 : Renderin multiple HTML templtes and Linking them to each other.
@@ -25,5 +27,6 @@ Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number 
  - practise7 : Introduction to Class Based View in Django.
  - practise8 : User Registration and individual content management.
  - practise9 : Social authentication integrated in project (google authentication) [Referred Blog](https://medium.com/@whizzoe/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5)
-
+ 
+</details>
 HAPPY CODING :)
