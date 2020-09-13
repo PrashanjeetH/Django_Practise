@@ -6,7 +6,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .models import UsersDataModel
 from .forms import UserDataForm
 
@@ -98,3 +98,12 @@ def userData(request):
                   context={'form': form,
                            'title': "Sign Up",
                            'year': datetime.now().year})
+
+
+def delete_user(request, key):
+    if request.method == 'POST':
+        user = UsersDataModel.objects.get(pk=key)
+        user.delete()
+    # if request.user.is_authenticated:
+    #     logout(request.user)
+    return redirect('home')

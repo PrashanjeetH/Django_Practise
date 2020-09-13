@@ -1,0 +1,31 @@
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ message }}</title>
+</head>
+<body>
+<h1>{{ message }}</h1>
+
+    <form action="." method="post">
+            {% csrf_token %}
+        <div class="row">
+            {{ form.sender | as_crispy_field }}
+            {{ form.receiver | as_crispy_field }}
+            {{ form.subject | as_crispy_field }}
+            {{ form.body | as_crispy_field }}
+{#            {{ form.attachment | as_crispy_field }}#}
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+
+
+    <script>
+        {% if form.errors %}
+            alert(" {{ form.errors }} ");
+        {% endif %}
+    </script>
+</body>
+</html>

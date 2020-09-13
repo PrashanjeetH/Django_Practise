@@ -29,4 +29,5 @@ urlpatterns = [
     path('administrator_panel/', admin.site.urls),
     path('register/', views.register, name='register'),
     path('userData/', views.userData, name='userData'),
+    path('delete_user/<int:key>', views.delete_user, name='delete_user'),
 ]
