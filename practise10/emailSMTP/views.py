@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.shortcuts import redirect
 from .models import SmtpMailModel
 from .forms import smtpMailForm
@@ -16,13 +16,22 @@ def index(request):
             mailobject = form.cleaned_data
             print(mailobject)
             try :
-                send_mail(
-                    mailobject['subject'],
-                    mailobject['body'],
-                    mailobject['sender'],
-                    [mailobject['receiver']],
-                    fail_silently = False,
+                # send_mail(
+                #     mailobject['subject'],
+                #     mailobject['body'],
+                #     mailobject['sender'],
+                #     [mailobject['receiver']],
+                #     fail_silently=False,
+                # )
+                email = EmailMessage(
+                    subject= mailobject['subject'],
+                    body=mailobject['body'],
+                    from_email=mailobject['sender'],
+                    to=[mailobject['receiver']],
+                    reply_to=[mailobject['receiver']],
+                    headers={'Content-Type': 'text/plain'},
                 )
+                email.send()
                 return redirect('final')
             except Exception as e:
                 print(e)
