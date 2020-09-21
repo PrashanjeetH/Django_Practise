@@ -17,16 +17,16 @@ Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number 
 <details>
 <summary>Repo Walkthrough</summary>
  
- - practise0 : Hello world in Django i.e rendering returning HTML response from views.
- - practise1 : Rendering returning HTML file from templates and using models/DB in Django.
- - practise2 : Renderin multiple HTML templtes and Linking them to each other.
- - practise3 : Intro to Django version of jinja2 i.e Django Template Language (DTL) and Loading Static files like css and js.
- - practise4 : Form in Django (Typical way).
- - practise5 : Form in Django (Django Forms Way).
- - practise6 : Handeling media files in Django.
- - practise7 : Introduction to Class Based View in Django.
- - practise8 : User Registration and individual content management.
- - practise9 : Social authentication integrated in project (google authentication) [Referred Blog](https://medium.com/@whizzoe/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5)
- 
+ - practise00 : Hello world in Django i.e rendering returning HTML response from views.
+ - practise01 : Rendering returning HTML file from templates and using models/DB in Django.
+ - practise02 : Renderin multiple HTML templtes and Linking them to each other.
+ - practise03 : Intro to Django version of jinja2 i.e Django Template Language (DTL) and Loading Static files like css and js.
+ - practise04 : Form in Django (Typical way).
+ - practise05 : Form in Django (Django Forms Way).
+ - practise06 : Handeling media files in Django.
+ - practise07 : Introduction to Class Based View in Django.
+ - practise08 : User Registration and individual content management.
+ - practise09 : Social authentication integrated in project (google authentication) [Referred Blog](https://medium.com/@whizzoe/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5)
+ - practise10 : Sending mail using SMTP server ( HOST : gmail )
 </details>
 HAPPY CODING :)
