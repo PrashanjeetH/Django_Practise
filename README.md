@@ -29,4 +29,7 @@ Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number 
  - practise09 : Social authentication integrated in project (google authentication) [Referred Blog](https://medium.com/@whizzoe/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5)
  - practise10 : Sending mail using SMTP server ( HOST : gmail )
 </details>
-HAPPY CODING :)
+
+*HAPPY CODING :)
+
+**P.S. : Some modules may need some extra config. see settings.py file for reference.
