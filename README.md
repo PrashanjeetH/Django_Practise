@@ -32,4 +32,4 @@ Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number 
 
 *HAPPY CODING :)
 
-**P.S. : Some modules may need some extra config. see settings.py file for reference.
+__P.S. : Some modules may need some extra config. see settings.py file for reference.__
