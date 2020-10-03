@@ -1,5 +1,6 @@
 # Django Practise
 I posted all my Django practise code while going through the course from [edx](https://edx.org) and later exploring world of django on own. 
+
 ![](https://img.shields.io/badge/build-passed-green)  ![](https://img.shields.io/github/stars/PrashanjeetH/Django_Practise?style=flat)  ![](https://img.shields.io/github/license/PrashanjeetH/Django_Practise)
 ## Course Name :
 [CS50's Web Development with Python and JavaScript | edx](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
