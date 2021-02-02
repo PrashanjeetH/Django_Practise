@@ -8,5 +8,36 @@
     <div>
       <h1>The heading goes here</h1>
     </div>
+    <div>
+      <table border="2">
+        <thead>
+          <tr>
+            FirstName
+          </tr>
+          <tr>
+            LastName
+          </tr>
+        </thead>
+        <tbody>
+          {% comment %}
+          {% for item in teachers %}
+          <tr>
+          <td>{{item.FirstName}}</td>
+          <td>{{item.LastName}}</td>
+        </tr>
+          {% endfor %}
+          {% endcomment %}
+          {% for item in home_list %}
+          <tr>
+          <td>{{item.FirstName}}</td>
+          <td>{{item.LastName}}</td>
+        </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+    <div>
+      <h1>The Number of visits : {{ visits }}</h1>
+    </div>
+    </div>
   </body>
 </html>
