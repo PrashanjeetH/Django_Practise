@@ -71,8 +71,8 @@ db.sqlite3-journal
 instance/
 .webassets-cache
 
-# Scrapy stuff:
-.scrapy
+	# Scrapy stuff:
+.scrapy	
 
 # Sphinx documentation
 docs/_build/
@@ -133,4 +133,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
+migrations/*
