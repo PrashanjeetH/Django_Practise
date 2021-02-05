@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Index Page</title>
+    <title>{{ view.title }}</title>
   </head>
   <body>
     <div>
@@ -12,31 +12,35 @@
       <table border="2">
         <thead>
           <tr>
-            FirstName
-          </tr>
-          <tr>
-            LastName
+            <td>FirstName</td>
+            <td>LastName</td>
           </tr>
         </thead>
         <tbody>
-          {% comment %}
-          {% for item in teachers %}
+          {% for name in view.Teachers %}
           <tr>
-          <td>{{item.FirstName}}</td>
-          <td>{{item.LastName}}</td>
+          <td>{{name.FirstName}}</td>
+          <td>{{name.LastName}}</td>
         </tr>
           {% endfor %}
-          {% endcomment %}
+          {% comment %}
           {% for item in home_list %}
           <tr>
           <td>{{item.FirstName}}</td>
           <td>{{item.LastName}}</td>
         </tr>
           {% endfor %}
+          {% endcomment %}
         </tbody>
     </table>
     <div>
-      <h1>The Number of visits : {{ visits }}</h1>
+        {#if view.Session_data #}
+        <h1>The Number of visits : {{ view.Session_data.num_visits }}</h1>
+        {# endif #}
+    </div>
+    <div>
+      {# Using session variables inside template #}
+      <p>Session Expires on {{ request.session.get_expiry_date }} i.e. within {{view.Session_data.difference}} days.</p>
     </div>
     </div>
   </body>
