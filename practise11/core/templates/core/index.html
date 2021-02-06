@@ -38,10 +38,7 @@
         <h1>The Number of visits : {{ view.Session_data.num_visits }}</h1>
         {# endif #}
     </div>
-    <div>
-      {# Using session variables inside template #}
-      <p>Session Expires on {{ request.session.get_expiry_date }} i.e. within {{view.Session_data.difference}} days.</p>
     </div>
-    </div>
+    <div><a href="{% url 'passcheck' %}" class="">Click Here!</a></div>
   </body>
 </html>

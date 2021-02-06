@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ view.title }}</title>
+  </head>
+  <body>
+    <div>
+      <p>Number of visits : {{request.session.num_visits}}</p>
+      <h1>The Number of visits : {{ view.Session_data.num_visits }}</h1>
+    </div>
+
+    <div>
+      {# Using session variables inside template #}
+      <p>Session Expires on {{ request.session.get_expiry_date }} i.e. within {{request.session.difference}} days.</p>
+    </div>
+  </body>
+</html>

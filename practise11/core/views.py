@@ -34,3 +34,9 @@ class home(ListView):
         difference = self.request.session.get_expiry_date() - datetime.now(timezone.utc)
         self.request.session['difference'] = difference.days
         return self.request.session
+
+
+class PassCheck(TemplateView):
+    template_name = "core/passcheck.html"
+    title = "Pass Check File"
+    
