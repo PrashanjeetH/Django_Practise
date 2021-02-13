@@ -3,6 +3,7 @@ from core.views import home, request_data
 
 app_name= 'core'
 
+# TODO: Remove Circular urls issue
 urlspaterns = [
     path('', home, name = 'home'),
     path('request_data/', request_data, name = 'request_data')
