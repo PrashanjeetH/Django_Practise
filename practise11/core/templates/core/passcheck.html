@@ -6,13 +6,17 @@
   </head>
   <body>
     <div>
-      <p>Number of visits : {{request.session.num_visits}}</p>
+      {% comment %}
+      <p>Number of visits : {{ request.session.num_visits }}</p>
       <h1>The Number of visits : {{ view.Session_data.num_visits }}</h1>
+      {% endcomment %}
+      <h1>The Number of visits : {{ request.session.num_visits }}</h1>
     </div>
 
     <div>
       {# Using session variables inside template #}
       <p>Session Expires on {{ request.session.get_expiry_date }} i.e. within {{request.session.difference}} days.</p>
     </div>
+    <a href="{% url 'home' %}"> &#8592; Go BACK  </a>
   </body>
 </html>

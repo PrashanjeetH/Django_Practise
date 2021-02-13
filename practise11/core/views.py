@@ -28,6 +28,7 @@ class home(ListView):
         return Teacher.objects.all()
 
     def Session_data(self, **kwargs):
+        # returns the num_visits value or sets 0 as default
         num_visits = self.request.session.get('num_visits', 0)
         difference = self.request.session.get('difference', 0)
         self.request.session['num_visits'] = num_visits + 1
@@ -39,4 +40,3 @@ class home(ListView):
 class PassCheck(TemplateView):
     template_name = "core/passcheck.html"
     title = "Pass Check File"
-    

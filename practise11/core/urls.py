@@ -5,5 +5,5 @@ from core.views import home, Name, PassCheck
 urlpatterns = [
     path('', home.as_view(), name = 'home'),
     # path('', Name, name = 'home')
-    path('passcheck/', PassCheck.as_view(), name = "passcheck"),
+    path('number-of-visits/', PassCheck.as_view(), name = "passcheck"),
 ]
