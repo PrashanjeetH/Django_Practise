@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           {% for name in view.Teachers %}
-          <tr>
+        <tr>
           <td>{{name.FirstName}}</td>
           <td>{{name.LastName}}</td>
         </tr>
@@ -39,6 +39,6 @@
         {# endif #}
     </div>
     </div>
-    <div><a href="{% url 'passcheck' %}" class="">Click Here!</a></div>
+    <div><a href="{% url 'passcheck' %}" class="">Click Here! </a> To check the session end date.</div>
   </body>
 </html>
