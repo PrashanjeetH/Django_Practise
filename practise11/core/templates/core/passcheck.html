@@ -15,8 +15,11 @@
 
     <div>
       {# Using session variables inside template #}
-      <p>Session Expires on {{ request.session.get_expiry_date }} i.e. within {{request.session.difference}} days.</p>
+      <p>Session Expires on {{ request.session.get_expiry_date }} i.e. within {{ request.session.difference }} days.</p>
     </div>
     <a href="{% url 'home' %}"> &#8592; Go BACK  </a>
   </body>
 </html>
+
+
+<!-- Just adding this line  -->

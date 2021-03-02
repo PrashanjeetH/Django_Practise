@@ -22,8 +22,13 @@ class home(ListView):
     template_name = "core/index.html"
     context_object_name = 'home_list'
     queryset = Student.objects.all() # can be accessed with object_list while template rendering
+    # queryset = Student.objects.order_by('date_created')  # Use (-date_created) for descending ordering
+    # queryset = Student.objects.filter(publisher__name='Goutam')
+
     title = "This is Title"
 
+
+    # custom module returning objects for rendering
     def Teachers(self, **kwargs):
         return Teacher.objects.all()
 
@@ -35,6 +40,12 @@ class home(ListView):
         difference = self.request.session.get_expiry_date() - datetime.now(timezone.utc)
         self.request.session['difference'] = difference.days
         return self.request.session
+
+    # def get_context_data(self,**kwrgs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['key'] = "value"  # Static
+    #     context['object'] = ModelClassName.objects.all()   # Object
+    #     return context
 
 
 class PassCheck(TemplateView):
