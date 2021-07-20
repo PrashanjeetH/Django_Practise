@@ -27,7 +27,7 @@ def signup(request):
             data['password'] = make_password(data['password'])
             # double pointer denotesof passing the dict as arguement to map proeperly the form with the models
             Signupmodel.objects.create(**data)
-            form_content = Signupform()
+        form_content = Signupform()
     context['form'] = form_content
     return render(request, "pages/signup.html", context )
 

@@ -20,7 +20,7 @@ Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number 
  
  - practise00 : Hello world in Django i.e rendering returning HTML response from views.
  - practise01 : Rendering returning HTML file from templates and using models/DB in Django.
- - practise02 : Renderin multiple HTML templtes and Linking them to each other.
+ - practise02 : Renderin multiple HTML templetes and Linking them to each other.
  - practise03 : Intro to Django version of jinja2 i.e Django Template Language (DTL) and Loading Static files like css and js.
  - practise04 : Form in Django (Typical way).
  - practise05 : Form in Django (Django Forms Way).
@@ -30,8 +30,8 @@ Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number 
  - practise09 : Social authentication integrated in project (google authentication) [Referred Blog](https://medium.com/@whizzoe/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5)
  - practise10 : Sending mail using SMTP server ( HOST : gmail )
  - practise11 : Exploring Django sessions.
- - practise12 : JsonResponse (making api call from client side for resources)
- - practise13 : [Comming Up] Django Rest Framework CRUD operations
+ - practise12 : JsonResponse (Pseodo API)
+ - practise13 : Django Rest Framework CRUD operations
 </details>
 
 *HAPPY CODING :)
