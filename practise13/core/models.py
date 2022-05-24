@@ -17,3 +17,23 @@ class ProfileModel(models.Model):
 
     def get_absolute_url(self):
         return redirect('profiles')
+
+class BusinessModel(models.Model):
+    name = models.CharField(max_length=50)
+    owner = models.CharField(max_length=50)
+    pincode = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return redirect('profiles')
+    
+    def save(self, *args, **kwargs):
+
+        if len(str(self.pincode)) > 6:
+            raise Exception('Maximum Length of pincode must not exceed 6.')
+        else:
+            return super(BusinessModel, self).save(*args, **kwargs)
+            
+

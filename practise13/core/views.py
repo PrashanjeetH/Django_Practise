@@ -17,9 +17,10 @@ class ProfileAPIView(APIView):
         query_set = ProfileModel.objects.all()
         serializer = ProfileSerializer(query_set, many=True)
         return Response(serializer.data)
-    def post(self, request,format=None):
+
+    def post(self, request, format=None):
         serializer = ProfileSerializer(data = request.data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             print("Post data is valid")
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
