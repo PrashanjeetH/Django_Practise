@@ -32,6 +32,7 @@ Open your browser and goto 127.0.0.1:8000 where 8000 is the default port number 
  - practise11 : Exploring Django sessions.
  - practise12 : JsonResponse (Pseodo API)
  - practise13 : Django Rest Framework CRUD operations
+ - practise14 : Django-Rest-Framework in details
 </details>
 
 *HAPPY CODING :)
