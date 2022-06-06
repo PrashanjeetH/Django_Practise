@@ -10,18 +10,20 @@ def check_student_list(id = None):
     if id is not None:
         data = {'id':id}
     json_data = json.dumps(data)
-    response = requests.get(url=URL, data=json_data)
+    headers = {'content-Type': 'application/json'}
+    response = requests.get(url=URL, data=json_data, headers=headers)
     return response
 
 
 def create_student():
     data = {
-        # 'name' : '',
-        'roll_no': '122',
+        'name' : 'Roshan',
+        'roll_no': '105',
         'city': 'Mumbai',
     }
+    headers = {'content-Type': 'application/json'}
     json_data = json.dumps(data)
-    response = requests.post(url=URL, data=json_data)
+    response = requests.post(url=URL, data=json_data, headers=headers)
     return response
 
 def update_student_data():
@@ -31,19 +33,21 @@ def update_student_data():
         'roll_no': '212',
         'city': 'CityChange',
     }
+    headers = {'content-Type': 'application/json'}
     json_data = json.dumps(data)
-    response = requests.put(url=URL, data=json_data)
+    response = requests.put(url=URL, data=json_data, headers=headers)
     return response
 
 def delete_student():
     data = {'id': 3}
+    headers = {'content-Type': 'application/json'}
     json_data = json.dumps(data)
-    response = requests.patch(url=URL, data=json_data)
+    response = requests.patch(url=URL, data=json_data, headers=headers)
     return response
 
 if  __name__ == '__main__':
 
-    # response = check_student_list(1)
+    # response = check_student_list(67)
     response = create_student()
     # response = update_student_data()
     # response = delete_student()

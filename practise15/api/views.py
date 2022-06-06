@@ -1,94 +1,52 @@
-import io
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from urllib import response
+from itsdangerous import Serializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 from django.core.exceptions import ObjectDoesNotExist
-
-
 from api.models import StudentsModel
-from api.serializers_model import StudentSerializer
+from api.serializers import StudentSerializer
 
 
-# Function Based APIView
-
-@csrf_exempt
+@api_view(['GET', 'PUT', 'POST', 'DELETE'])
 def students_list(request):
-    if request.method =='GET':
-        received_data = request.body
-        stream = io.BytesIO(received_data)
-        python_data = JSONParser().parse(stream)
-        id = python_data.get('id', None)
+    if request.method == 'GET':
+        id = request.data.get('id')
         if id is not None:
-            student_data = StudentsModel.objects.get(id=1)
-            serializer =  StudentSerializer(student_data)
-            return JsonResponse(serializer.data)
-        students = StudentsModel.objects.all()
-        # NOTE: When passing python object to a serializer with data argument you have to call .is_valid() method or else 
-        # use serializer.initial_data to access the serialized data
+            try:
+                student = StudentsModel.objects.get(pk=id)
+                serializer = StudentSerializer(student)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            except ObjectDoesNotExist:
+                return Response({'detail': 'No valid input found.'}, status=status.HTTP_400_BAD_REQUEST)
+        students = StudentsModel.objects.all()  
         serializer = StudentSerializer(students, many=True)
-        return JsonResponse(serializer.data, safe=False)
-
-
-    elif request.method =='POST':
-        received_data = request.body
-        stream = io.BytesIO(received_data)
-        python_data = JSONParser().parse(stream)
-        serializer = StudentSerializer(data=python_data)
-        if serializer.is_valid():
-            serializer.save()
-            # TODO: Try a method to append message with the serialized data itself
-            # serializer.update({'message':'Provided student data uploaded successfully.'})
-            return JsonResponse(serializer.data)
-        return JsonResponse(serializer.errors)
-
-
-    elif request.method == 'PUT':
-        received_data = request.body
-        stream = io.BytesIO(received_data)
-        python_data = JSONParser().parse(stream)
-        serializer = StudentSerializer(data=python_data)
-        id = python_data.get('id')
-        student = StudentsModel.objects.get(id=id)
-        serializer = StudentSerializer(student, data=python_data)   # add argument partial=True for partially updating the entry
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data)
-        else:
-            return JsonResponse(serializer.errors)
-    elif request.method == 'DELETE':
-        received_data = request.body
-        stream = io.BytesIO(received_data)
-        python_data = JSONParser().parse(stream)
-        id = python_data.get('id', None)
-        try:
-            student_data = StudentsModel.objects.get(id=id)
-            serializer =  StudentSerializer(student_data)
-            student_data.delete()
-            return JsonResponse(serializer.data)
-        except ObjectDoesNotExist:
-            return JsonResponse({'message':f'No Entry Found with id = {id}'}, safe=False)
-    # If requested HTTP method is not one of GET, POST, PUT, DELETE
-    return JsonResponse({'message':'Invalid request. Method Not Allowed.'}, safe=False)
-
-
-# Class Based APIView
-
-from django.views import View
-from django.utils.decorators import method_decorator
-
-@method_decorator(csrf_exempt, name='dispatch')
-class StudentAPIView(View):
-    def get(self, request, *args, **kwargs):
-        # logic for handelling GET request to retrive data
-        pass
-    def post(self, request, *args, **kwargs):
-        # logic for handelling POST request to receive data
-        pass
-    def put(self, request, *args, **kwargs):
-        # logic for handelling PUT request to update data (full/partial)
-        pass
-    def delete(self, request, *args, **kwargs):
-        # logic for handelling DELETE request to delete data
-        pass
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
+    if request.method == 'POST':
+        try:
+            serializer = StudentSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({'detail': 'Entry Created!'}, status=status.HTTP_201_CREATED)
+        except:
+            return Response({'detail': 'Invalid Request'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+    if request.method == 'PUT':
+        id = request.data.get('id')
+        query = StudentsModel.objects.filter(pk=id)
+        if id is not None and query.exists():
+            serializer = StudentSerializer(query[0], data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({'detail': 'Data Updated'}, status=status.HTTP_202_ACCEPTED)
+            return Response(serializer.errors, status=status.HTTP_409_CONFLICT)
+        return Response({'detail': 'Invalid Request'}, status=status.HTTP_400_BAD_REQUEST)
+
+    if request.method =='DELETE':
+        id = request.data.get('id')
+        query = StudentsModel.objects.filter(pk=id)
+        if id is not None and query.exists():
+            query[0].delete()
+            return Response({'detail': 'Data Deleted'}, status=status.HTTP_200_OK)
