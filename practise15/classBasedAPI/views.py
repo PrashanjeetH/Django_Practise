@@ -19,7 +19,7 @@ class StudentAPIView(APIView):
                 return Response(serializer.data, status=status.HTTP_200_OK)
             except ObjectDoesNotExist:
                 return Response({'detail': 'No valid input found.'}, status=status.HTTP_400_BAD_REQUEST)
-        students = StudentModel.objects.all()  
+        students = StudentModel.objects.all()
         serializer = StudentSerializer(students, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -29,7 +29,9 @@ class StudentAPIView(APIView):
             serializer = StudentSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response({'detail': 'Entry Created!'}, status=status.HTTP_201_CREATED)
+                return Response({'detail': 'Entry Created!', 'data': serializer.data}, status=status.HTTP_201_CREATED)
+            else:
+                raise Exception
         except:
             return Response({'detail': 'Invalid Request'}, status=status.HTTP_400_BAD_REQUEST)
 

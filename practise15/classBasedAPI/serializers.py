@@ -7,7 +7,7 @@ def starts_with_capitals(value):
     return value
 
 def check_for_valid_name(value):
-    if not value.isalpha():
+    if not (''.join(value.split())).isalpha():
         raise serializers.ValidationError('Name should not contain any numbers!')
     return value
 
@@ -15,6 +15,7 @@ def check_for_valid_name(value):
 # Create your models here.
 class StudentSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100, validators=[starts_with_capitals, check_for_valid_name])
+    # name = serializers.CharField(max_length=100)
     roll_no = serializers.IntegerField()
     city = serializers.CharField(max_length=200)
 
@@ -30,17 +31,17 @@ class StudentSerializer(serializers.Serializer):
 
     # Field level Validation for roll attribute
     # SYNTAX: def validate_fieldname(self, value):
-    def validate_roll_no(self, value):
-        if value >=200:
-            raise serializers.ValidationError(f'Roll number `{value}` is out of range!')
-        return value
+    # def validate_roll_no(self, value):
+    #     if value > 999 and value < 100:
+    #         raise serializers.ValidationError(f'Roll number `{value}` is out of range!')
+    #     return value
 
     # Object level validation for whole object attributes
-    def validate(self, data):
-        name = data.get('name')
-        roll_no = int(data.get('roll_no'))
-        city = data.get('city')
-        # do not allows an entry with below object values
-        if name.lower() == 'jeetu' and roll_no == 105 and city.lower() == 'nagpur':
-            raise serializers.ValidationError("Special Case! this combination of entry is not allowed.")
-        return data
+    # def validate(self, data):
+    #     name = data.get('name')
+    #     roll_no = int(data.get('roll_no'))
+    #     city = data.get('city')
+    #     # do not allows an entry with below object values
+    #     if name.lower() == 'jeetu' and roll_no == 105 and city.lower() == 'nagpur':
+    #         raise serializers.ValidationError("Special Case! this combination of entry is not allowed.")
+    #     return data
